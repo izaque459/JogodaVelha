@@ -20,6 +20,7 @@ public class Main {
         // Cria o objeto Jogo e inicia o jogo
         Jogo jogo = new Jogo(jogador1,jogador2);
         jogo.iniciarJogo();
+        jogo.fazerJogada(0,0);
     }
 
 }
