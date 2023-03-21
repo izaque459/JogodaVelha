@@ -1,7 +1,5 @@
 package Jogo;
 
-import java.util.Scanner;
-
 import Jogador.Jogador;
 import Tabuleiro.Tabuleiro;
 
@@ -12,43 +10,44 @@ public class Jogo {
     private Tabuleiro tabuleiro;
     private Jogador jogadorAtual;
 
-    public Jogo(Jogador jogador1, Jogador jogador2, Tabuleiro tabuleiro) {
+    public Jogo(Jogador jogador1, Jogador jogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
-        this.tabuleiro = tabuleiro;
+        this.tabuleiro = new Tabuleiro();
         this.jogadorAtual = jogador1;
     }
 
-    public void iniciar() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Começando jogo da velha!");
+    public void iniciarJogo() {
+        System.out.println("Jogo iniciado.");
+    }
 
-        while (!tabuleiro.estaCompleto() && !tabuleiro.haVencedor()) {
-            System.out.println("\n\n");
-            tabuleiro.mostrar();
+    public Jogador getJogadorAtual() {
+        return jogadorAtual;
+    }
 
-            System.out.println("\n" + jogadorAtual.getNome() + ", é sua vez de jogar. Escolha uma posição (1-9):");
-            int posicao = scanner.nextInt();
-
-            if (!tabuleiro.ocupar(posicao, jogadorAtual.getSimbolo())) {
-                System.out.println("Posição inválida. Tente novamente.");
-                continue;
-            }
-
-            if (jogadorAtual == jogador1) {
-                jogadorAtual = jogador2;
+    public boolean fazerJogada(int linha, int coluna) {
+        boolean jogadaValida = tabuleiro.adicionarJogada(linha, coluna, jogadorAtual);
+        if (jogadaValida) {
+            System.out.println("Jogador " + jogadorAtual.getNome() + " jogou em (" + linha + ", " + coluna + ")");
+            if (tabuleiro.verificarVencedor() != null) {
+                System.out.println("Jogador " + jogadorAtual.getNome() + " venceu!");
+            } else if (tabuleiro.isTabuleiroCheio()) {
+                System.out.println("Jogo empatado!");
             } else {
-                jogadorAtual = jogador1;
+                jogadorAtual = (jogadorAtual == jogador1) ? jogador2 : jogador1;
             }
-        }
-
-        System.out.println("\n\n");
-        tabuleiro.mostrar();
-
-        if (tabuleiro.haVencedor()) {
-            System.out.println("\nParabéns, " + jogadorAtual.getNome() + "! Você venceu!");
+            return true;
         } else {
-            System.out.println("\nEmpate!");
+            System.out.println("Jogada inválida. Tente novamente.");
+            return false;
         }
+    }
+
+    public boolean jogoAcabou() {
+        return tabuleiro.verificarVencedor() != null || tabuleiro.isTabuleiroCheio();
+    }
+
+    public Jogador getVencedor() {
+        return tabuleiro.verificarVencedor();
     }
 }
