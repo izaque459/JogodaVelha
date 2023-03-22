@@ -49,7 +49,7 @@ public class Jogo implements IJogo {
 
     @Override
     public boolean jogoAcabou() {
-        return tabuleiro.verificarVencedor() != null || tabuleiro.isTabuleiroCheio();
+        return ( tabuleiro.verificarVencedor() != null) || tabuleiro.isTabuleiroCheio();
     }
 
     @Override
