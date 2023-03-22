@@ -16,12 +16,20 @@ public class Main {
         System.out.println("Digite o nome do jogador 2:");
         String nomeJogador2 = scanner.nextLine();
        // Jogador jogador2 = new Jogador(nomeJogador2, 'O');
+       int linha = 0;
+       int coluna =0;
         
         
         // Cria o objeto Jogo e inicia o jogo
         IJogo jogo = new Jogo(new Jogador(nomeJogador1,'X'),new Jogador(nomeJogador2, 'O'));
         jogo.iniciarJogo();
-        jogo.fazerJogada(0,0);
+        while(!jogo.jogoAcabou()){
+            System.out.println("Jogador Atual"+jogo.getJogadorAtual().getNome() + " realize sua jogada:");
+            linha = scanner.nextInt();
+            coluna = scanner.nextInt();
+            jogo.fazerJogada(linha,coluna);
+
+        }
     }
 
 }
