@@ -1,13 +1,14 @@
 package Jogo;
 
 import Jogador.IJogador;
+import Tabuleiro.ITabuleiro;
 import Tabuleiro.Tabuleiro;
 
 public class Jogo {
 
     private IJogador jogador1;
     private IJogador jogador2;
-    private Tabuleiro tabuleiro;
+    private ITabuleiro tabuleiro;
     private IJogador jogadorAtual;
 
     public Jogo(IJogador jogador1, IJogador jogador2) {

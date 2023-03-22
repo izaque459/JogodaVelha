@@ -2,7 +2,7 @@ package Tabuleiro;
 
 import Jogador.IJogador;
 
-public class Tabuleiro {
+public class Tabuleiro implements ITabuleiro {
 
     private static final int TAMANHO = 3;
     private IJogador[][] matriz;
@@ -13,6 +13,7 @@ public class Tabuleiro {
         this.jogadas = 0;
     }
 
+    @Override
     public boolean adicionarJogada(int linha, int coluna, IJogador jogador) {
         if (matriz[linha][coluna] != null) {
             return false;
@@ -23,10 +24,12 @@ public class Tabuleiro {
         }
     }
 
+    @Override
     public boolean isTabuleiroCheio() {
         return jogadas == TAMANHO * TAMANHO;
     }
 
+    @Override
     public IJogador verificarVencedor() {
         for (int i = 0; i < TAMANHO; i++) {
             // Verifica linhas
