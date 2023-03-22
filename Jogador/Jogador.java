@@ -1,6 +1,5 @@
 package Jogador;
-
-public class Jogador {
+public class Jogador implements IJogador{
     
     private String nome;
     private char simbolo;
@@ -10,10 +9,12 @@ public class Jogador {
         this.simbolo = simbolo;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public char getSimbolo() {
         return simbolo;
     }

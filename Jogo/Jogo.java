@@ -1,16 +1,16 @@
 package Jogo;
 
-import Jogador.Jogador;
+import Jogador.IJogador;
 import Tabuleiro.Tabuleiro;
 
 public class Jogo {
 
-    private Jogador jogador1;
-    private Jogador jogador2;
+    private IJogador jogador1;
+    private IJogador jogador2;
     private Tabuleiro tabuleiro;
-    private Jogador jogadorAtual;
+    private IJogador jogadorAtual;
 
-    public Jogo(Jogador jogador1, Jogador jogador2) {
+    public Jogo(IJogador jogador1, IJogador jogador2) {
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
         this.tabuleiro = new Tabuleiro();
@@ -21,14 +21,14 @@ public class Jogo {
         System.out.println("Jogo iniciado.");
     }
 
-    public Jogador getJogadorAtual() {
+    public IJogador getJogadorAtual() {
         return jogadorAtual;
     }
 
     public boolean fazerJogada(int linha, int coluna) {
         boolean jogadaValida = tabuleiro.adicionarJogada(linha, coluna, jogadorAtual);
         if (jogadaValida) {
-            System.out.println("Jogador " + jogadorAtual.getNome() + " jogou em (" + linha + ", " + coluna + ")");
+           System.out.println("Jogador " + jogadorAtual.getNome() + " jogou em (" + String.valueOf(linha) + ", " + String.valueOf(coluna) + ")");
             if (tabuleiro.verificarVencedor() != null) {
                 System.out.println("Jogador " + jogadorAtual.getNome() + " venceu!");
             } else if (tabuleiro.isTabuleiroCheio()) {
@@ -47,7 +47,7 @@ public class Jogo {
         return tabuleiro.verificarVencedor() != null || tabuleiro.isTabuleiroCheio();
     }
 
-    public Jogador getVencedor() {
+    public IJogador getVencedor() {
         return tabuleiro.verificarVencedor();
     }
 }

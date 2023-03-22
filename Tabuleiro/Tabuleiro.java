@@ -1,19 +1,19 @@
 package Tabuleiro;
 
-import Jogador.Jogador;
+import Jogador.IJogador;
 
 public class Tabuleiro {
 
     private static final int TAMANHO = 3;
-    private Jogador[][] matriz;
+    private IJogador[][] matriz;
     private int jogadas;
 
     public Tabuleiro() {
-        this.matriz = new Jogador[TAMANHO][TAMANHO];
+        this.matriz = new IJogador[TAMANHO][TAMANHO];
         this.jogadas = 0;
     }
 
-    public boolean adicionarJogada(int linha, int coluna, Jogador jogador) {
+    public boolean adicionarJogada(int linha, int coluna, IJogador jogador) {
         if (matriz[linha][coluna] != null) {
             return false;
         } else {
@@ -27,7 +27,7 @@ public class Tabuleiro {
         return jogadas == TAMANHO * TAMANHO;
     }
 
-    public Jogador verificarVencedor() {
+    public IJogador verificarVencedor() {
         for (int i = 0; i < TAMANHO; i++) {
             // Verifica linhas
             if (matriz[i][0] != null && matriz[i][0] == matriz[i][1] && matriz[i][1] == matriz[i][2]) {
