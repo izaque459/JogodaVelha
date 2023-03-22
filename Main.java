@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import Jogador.Jogador;
+import Jogo.IJogo;
 import Jogo.Jogo;
 
 public class Main {
@@ -18,7 +19,7 @@ public class Main {
         
         
         // Cria o objeto Jogo e inicia o jogo
-        Jogo jogo = new Jogo(new Jogador(nomeJogador1,'X'),new Jogador(nomeJogador2, 'O'));
+        IJogo jogo = new Jogo(new Jogador(nomeJogador1,'X'),new Jogador(nomeJogador2, 'O'));
         jogo.iniciarJogo();
         jogo.fazerJogada(0,0);
     }

@@ -4,7 +4,7 @@ import Jogador.IJogador;
 import Tabuleiro.ITabuleiro;
 import Tabuleiro.Tabuleiro;
 
-public class Jogo {
+public class Jogo implements IJogo {
 
     private IJogador jogador1;
     private IJogador jogador2;
@@ -18,14 +18,17 @@ public class Jogo {
         this.jogadorAtual = jogador1;
     }
 
+    @Override
     public void iniciarJogo() {
         System.out.println("Jogo iniciado.");
     }
 
+    @Override
     public IJogador getJogadorAtual() {
         return jogadorAtual;
     }
 
+    @Override
     public boolean fazerJogada(int linha, int coluna) {
         boolean jogadaValida = tabuleiro.adicionarJogada(linha, coluna, jogadorAtual);
         if (jogadaValida) {
@@ -44,10 +47,12 @@ public class Jogo {
         }
     }
 
+    @Override
     public boolean jogoAcabou() {
         return tabuleiro.verificarVencedor() != null || tabuleiro.isTabuleiroCheio();
     }
 
+    @Override
     public IJogador getVencedor() {
         return tabuleiro.verificarVencedor();
     }
