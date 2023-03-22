@@ -24,8 +24,10 @@ public class Main {
         IJogo jogo = new Jogo(new Jogador(nomeJogador1,'X'),new Jogador(nomeJogador2, 'O'));
         jogo.iniciarJogo();
         while(!jogo.jogoAcabou()){
-            System.out.println("Jogador Atual"+jogo.getJogadorAtual().getNome() + " realize sua jogada:");
+            System.out.println("Jogador Atual "+jogo.getJogadorAtual().getNome() + " realize sua jogada:");
+            System.out.print("Digite o numero da linha: ");
             linha = scanner.nextInt();
+            System.out.print("Digite o numero da coluna: ");
             coluna = scanner.nextInt();
             jogo.fazerJogada(linha,coluna);
 
