@@ -38,8 +38,14 @@ Jogo da velha
 
 
 ## Regras de negócio
+
+### Jogada
 1. Cada jogador pode marcar apenas uma célula por vez.
 2. Uma célula só pode ser marcada uma vez.
 3. O jogo termina quando um jogador fizer três marcas em linha, coluna ou diagonal, ou quando todas as células estiverem ocupadas.
-4. O jogador que conseguir três de suas marcas em linha, coluna ou diagonal primeiro vence.
+
+### Vencedor
+1. O jogador que conseguir três de suas marcas em linha, coluna ou diagonal primeiro vence.
+
+### Empate
 5. Se todas as células estiverem ocupadas e nenhum jogador tiver vencido, o jogo termina em empate.
