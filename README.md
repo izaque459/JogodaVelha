@@ -21,10 +21,20 @@ Jogo da velha
 
 
 ## Requisitos não funcionais
+
+## Desempenho
+1. O jogo deve responder rapidamente às ações do usuário.
+
+## Tecnologia envolvidas
 1. O sistema pode usar linguagem Java
 2. O sistema pode usar SceneBuilder para apresentar uma interface intuitiva
-3. O jogo deve ser capaz de lidar com entradas inválidas do usuário (por exemplo, clicar em uma célula já ocupada).
-4. O jogo deve fornecer feedback claro ao usuário sobre suas ações.
+
+### Robustez
+1. O jogo deve ser capaz de lidar com entradas inválidas do usuário (por exemplo, clicar em uma célula já ocupada).
+
+### Usabilidade
+1. O jogo deve fornecer feedback claro ao usuário sobre suas ações.
+2. A interface deve ser fácil de entender e usar.
 
 
 ## Regras de negócio
